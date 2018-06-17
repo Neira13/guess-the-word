@@ -6,7 +6,7 @@ var arrayForindex = [];
 // start of game
 function init (startWord) {
     word = startWord;
-
+}
  // called on symbol
 function onSymbol (symbol) {
 	var pos = word.indexOf(symbol);
@@ -16,4 +16,15 @@ function onSymbol (symbol) {
 		pos = word.indexOf(symbol, pos + 1);
 	}
 	return arrayForindex;
+}
+
+function printWord() {
+	for (i=0; i < word.length; i++) {
+		if (arrayForindex.includes(i)) {
+			process.stdout.write(word[i]);
+		} else {
+			process.stdout.write("*");
+		}
+	}
+	
 }
