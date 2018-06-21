@@ -54,4 +54,12 @@ function run(startWord) {
 		if (wordUnravelled()) process.exit();	
 	});
 }
-run("кукушка");
+// Random words
+function random() {
+	var words = ["транспорт", "акустика", "футбол", 
+	"программист", "рейс", "континент"];
+	var word = words[Math.floor(Math.random()*words.length)];
+	return word;
+	
+}
+run(random());
