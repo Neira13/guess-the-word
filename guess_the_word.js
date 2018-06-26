@@ -23,6 +23,7 @@ function onSymbol(symbol) {
 	while (pos !== -1) {
 		arrayForindex.push(pos);
 		pos = word.indexOf(symbol, pos + 1);
+		scoring(symbol);
 	}
 	return arrayForindex;
 }
@@ -65,7 +66,7 @@ function run(startWord) {
 	process.stdin.setRawMode(true);
 	process.stdin.on('data', function(symbol) {
 		onSymbol(symbol);
-		console.log(symbol, scoring(symbol));
+		console.log(symbol, sum);
 		printWord();
 		console.log();
 		if (wordUnravelled()) process.exit();	
