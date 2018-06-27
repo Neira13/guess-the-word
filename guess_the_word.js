@@ -74,9 +74,28 @@ function run(startWord) {
 }
 // Random words
 function random() {
-	var words = ["транспорт", "акустика", "футбол", 
-	"программист", "рейс", "континент"];
+	var words = ["синтез", "буква", "джаз", 
+	"надпись", "сигара", "профилакторий"];
 	var word = words[Math.floor(Math.random()*words.length)];
+	switch (word) {
+	case 'синтез': 
+		console.log("Получение сложных химических соединений из более простых");
+		break;
+	case 'буква': 
+		console.log("Прямой и строгий смысл чего-нибудь");
+		break;
+	case 'джаз': 
+		console.log("Оригинальная импровизационная музыка с неровным ритмом и темпом");
+		break;
+	case 'надпись': 
+		console.log("короткий текст на поверхности чего-либо");
+		break;
+	case 'сигара': 
+		console.log("Предмет в форме удлинённой, сужающейся на концах трубы.");
+		break;
+	default: 
+		console.log("Медицинское учреждение.");
+	}
 	return word;
 	
 }
