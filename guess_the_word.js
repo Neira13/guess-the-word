@@ -10,11 +10,21 @@ var word = null;
 // array of integer
 var arrayForindex = [];
 var sum = 0;
+var arrayOfGamers = [];
+// 
+//var arrayOfGamers = [{name: "Вася", amountOfPoints: 3}, 
+//                    {name: "Костя", amountOfPoints: 4}];
 
 // Setters
 // start of game
 function init(startWord) {
     word = startWord;
+}
+// 
+function addGamers() { 
+  for (var i = 2; i < process.argv.length; i++){
+	arrayOfGamers.push({name: process.argv[i] , amountOfPoints: 0});
+}
 }
 // called on symbol
 function onSymbol(symbol) {
@@ -72,6 +82,15 @@ function run(startWord) {
 		if (wordUnravelled()) process.exit();	
 	});
 }
+
+// Gamers
+function gamer(name) {
+	this.name = name;
+	this.game = function () {
+		console.log("Игрок: " + this.name);
+	}
+	return this.name;
+}
 // Random words
 function random() {
 	var words = ["синтез", "буква", "джаз", 
@@ -79,16 +98,16 @@ function random() {
 	var word = words[Math.floor(Math.random()*words.length)];
 	switch (word) {
 	case 'синтез': 
-		console.log("Получение сложных химических соединений из более простых");
+		console.log("Получение сложных химических соединений из более простых.");
 		break;
 	case 'буква': 
-		console.log("Прямой и строгий смысл чего-нибудь");
+		console.log("Прямой и строгий смысл чего-нибудь.");
 		break;
 	case 'джаз': 
-		console.log("Оригинальная импровизационная музыка с неровным ритмом и темпом");
+		console.log("Оригинальная импровизационная музыка с неровным ритмом и темпом.");
 		break;
 	case 'надпись': 
-		console.log("короткий текст на поверхности чего-либо");
+		console.log("короткий текст на поверхности чего-либо.");
 		break;
 	case 'сигара': 
 		console.log("Предмет в форме удлинённой, сужающейся на концах трубы.");
@@ -99,4 +118,7 @@ function random() {
 	return word;
 	
 }
+
 run(random());
+addGamers();
+console.log(arrayOfGamers);
